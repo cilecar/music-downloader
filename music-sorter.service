@@ -1,0 +1,14 @@
+[Unit]
+Description=Music inbox sorter
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3.12 %h/music-downloader/sorter.py
+Restart=on-failure
+RestartSec=5
+Environment=MUSIC_INBOX=%h/Музыка/inbox
+Environment=MUSIC_ROOT=%h/Музыка/nicotine/spotify
+
+[Install]
+WantedBy=default.target
